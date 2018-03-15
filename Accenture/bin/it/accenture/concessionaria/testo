@@ -1,0 +1,47 @@
+Si vuole Gestire una Concessionaria di Auto, Moto e Camion
+
+Un veicolo, ha:
+- numMatricola;
+- proprietario;
+- annoImmatricolazione;
+- scadAssicurazione;
+- targa;
+- cilindrata;
+- private String stato(indica lo stato del veicolo: "inConsegna", "disponibile", "venduto");
+
+La classe Veicolo deve essere gestita come classe astratta e deve implementare i seguenti metodi:
+- public abstract void parti(int velocIniz) - setta la velocità iniziale del veicolo in riferimento
+  per tutte le classi tale metodo fa si che:  velocita=velocIniz.
+- public abstract void accelera () - Calcola la veloctà massima per quel veicolo
+-  deve inoltre implementare l'interfaccia VeicoloAssicurato che contiene un metodo
+public boolean isAssicurato(int annoCorrente) che dato l'anno corrente dica 
+se un veicolo è assicurato 
+per quell'anno
+
+Un' Auto è un Veicolo che ha come caratteristica i parametri:
+- tipo (che puo' essere ad esempio: utilitario, familiare, sportivo)
+- incremento (di quanto puù aumentare la velocità di base)
+- velocità (velocità di base della vettura inizialmente pari a zero)
+In tale classe il metodo accelera viene calcolato come: velocita=velocita+incremento
+
+Un Camion è un Veicolo che ha come caratteristica i parametri:
+- numAssi (ossia il numero di assi che puo' essere 2 o 3 o ...)
+- incremento (di quanto puù aumnetare la velocità di base)
+- velocità (velocità di base della vettura inizialmente pari a zero)
+In tale classe il metodo accelera viene calcolato come: velocita=velocita+incremento/4
+
+Una Moto è un Veicolo che ha come caratteristica i parametri:
+- incremento (di quanto puù aumnetare la velocità di base)
+- velocità (velocità di base della vettura inizialmente pari a zero)
+- numPosti(che puo' essere 1 o 2)
+In tale classe il metodo accelera viene calcolato come: velocita=velocita+incremento
+
+
+La classe Gestione_Veicoli deve prevedere i seguenti metodi:
+- public ArrayList<Veicolo> OrdinaVeicoliCilindrata()- restituisce una lista di veicoli ordinati per cilindrata
+- public ArrayList<Auto> autoDisponibili() - restituisce una lista ordinata di auto secondo l'ordinamento utilitario==>familiare==>sportivo tra quelle che hanno lo stato "disponibile"
+- public ArrayList<Veicolo> VeicoliOrdinatiTarga()- restituisce una lista di veicoli secondo l'ordine crescente di targa
+- public Veicolo veicoloTargaMax()- restituisce il veicolo con la targa più grande
+- public Veicolo veicoloCilindrataMin()- restituisce il veicolo con la cilindrata  più piccola
+- public ArrayList <Auto> autoOrdineImmatricolazione() - restituisce le auto in ordine decrescente di immatricolazione
+- public ArrayList<Veicolo> veicoliAssicurati(int annoCorrente) - dato un determinato anno restituisce la lista delle auto che in quell'anno risultano essere assicurate
